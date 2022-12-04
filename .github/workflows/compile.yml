@@ -1,0 +1,71 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Android Build CI
+
+# Controls when the workflow will run
+on: [push, workflow_dispatch]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  android:
+    name: Build for Android
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
+
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r15c
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@v1.1.5
+        with:
+          haxe-version: 4.2.5
+
+      - name: Setup HaxeFlixel
+        run: |
+          sudo apt-get install libvlc-dev
+          sudo apt-get install libvlccore-dev
+          haxelib setup ~/haxelib
+          sudo apt-get install libvlc-dev
+          sudo apt-get install libvlccore-dev
+          haxelib install lime
+          haxelib install openfl
+          haxelib --never install flixel 4.11.0
+          haxelib run lime setup flixel
+          haxelib run lime setup
+          haxelib install flixel-tools
+          haxelib install flixel-ui
+          haxelib install flixel-addons
+          haxelib list
+      - name: Setup Lime
+        run: |
+          haxelib run lime setup -alias -y
+          lime config ANDROID_SDK $ANDROID_HOME
+          lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
+          lime config JAVA_HOME $JAVA_HOME
+          lime config ANDROID_SETUP true
+          lime config
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+
+      - name: Build APK
+        run: lime build android -final
+      
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2.2.2
+        with:
+          name: Android Build
+          path: export/release/android/bin/app/build/outputs/apk/debug
