@@ -240,6 +240,14 @@ class TitleState extends MusicBeatState
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
+		#if mobile
+		for (touch in FlxG.touches.list) {
+			if (touch.justPressed) {
+				pressedEnter = true;
+			}
+		}
+		#end
+
 		if (gamepad != null)
 		{
 			if (gamepad.justPressed.START)
@@ -271,9 +279,7 @@ class TitleState extends MusicBeatState
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
-				// Check if version is outdated
-
-				var version:String = "v" + Application.current.meta.get('version');
+				FlxG.switchState(new MainMenuState());
 			});
 			// FlxG.sound.play('assets/music/titleShoot' + TitleState.soundExt, 0.7);
 		}
