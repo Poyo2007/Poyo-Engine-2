@@ -23,7 +23,6 @@ import flixel.util.FlxTimer;
 import io.newgrounds.NG;
 import lime.app.Application;
 import openfl.Assets;
-import polymod.Polymod;
 
 using StringTools;
 
@@ -44,8 +43,6 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		Polymod.init({modRoot: "mods", dirs: ['introMod']});
-
 		#if (!web)
 		TitleState.soundExt = '.ogg';
 		#end

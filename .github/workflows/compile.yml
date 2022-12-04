@@ -55,6 +55,7 @@ jobs:
           haxelib list
       - name: Setup Lime
         run: |
+          haxelib set flixel 4.11.0
           haxelib run lime setup -alias -y
           lime config ANDROID_SDK $ANDROID_HOME
           lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
