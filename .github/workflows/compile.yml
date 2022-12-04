@@ -49,6 +49,7 @@ jobs:
           haxelib install flixel-tools
           haxelib install flixel-ui
           haxelib install flixel-addons
+          haxelib install newgrounds
           haxelib list
       - name: Setup Lime
         run: |
