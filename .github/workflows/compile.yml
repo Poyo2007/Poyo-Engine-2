@@ -50,6 +50,8 @@ jobs:
           haxelib install flixel-ui
           haxelib install flixel-addons
           haxelib install newgrounds
+          haxelib install polymod
+          haxelib install hscript
           haxelib list
       - name: Setup Lime
         run: |
