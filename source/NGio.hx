@@ -1,3 +1,4 @@
+#if desktop
 package;
 
 import flixel.FlxG;
@@ -197,3 +198,4 @@ class NGio
 		}
 	}
 }
+#end

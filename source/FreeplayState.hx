@@ -234,7 +234,7 @@ class FreeplayState extends MusicBeatState
 
 	function changeSelection(change:Int = 0)
 	{
-		#if !switch
+		#if desktop
 		NGio.logEvent('Fresh');
 		#end
 
