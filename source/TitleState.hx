@@ -253,7 +253,7 @@ class TitleState extends MusicBeatState
 
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
-			#if !switch
+			#if desktop
 			NGio.unlockMedal(60960);
 
 			// If it's Friday according to da clock
@@ -274,16 +274,6 @@ class TitleState extends MusicBeatState
 				// Check if version is outdated
 
 				var version:String = "v" + Application.current.meta.get('version');
-
-				if (version.trim() != NGio.GAME_VER_NUMS && !OutdatedSubState.leftState)
-				{
-					trace('OLD VERSION!');
-					FlxG.switchState(new OutdatedSubState());
-				}
-				else
-				{
-					FlxG.switchState(new MainMenuState());
-				}
 			});
 			// FlxG.sound.play('assets/music/titleShoot' + TitleState.soundExt, 0.7);
 		}
