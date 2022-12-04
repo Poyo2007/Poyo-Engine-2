@@ -224,11 +224,11 @@ class FreeplayState extends MusicBeatState
 		switch (curDifficulty)
 		{
 			case 0:
-				diffText.text = "EASY";
+				diffText.text = "Easy";
 			case 1:
-				diffText.text = 'NORMAL';
+				diffText.text = 'Normal';
 			case 2:
-				diffText.text = "HARD";
+				diffText.text = "Hard";
 		}
 	}
 
@@ -254,8 +254,6 @@ class FreeplayState extends MusicBeatState
 		intendedScore = Highscore.getScore(songs[curSelected], curDifficulty);
 		// lerpScore = 0;
 		#end
-
-		FlxG.sound.playMusic('assets/music/' + songs[curSelected] + "_Inst" + TitleState.soundExt, 0);
 
 		var bullShit:Int = 0;
 
