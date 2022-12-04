@@ -32,7 +32,7 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@v1.1.5
         with:
-          haxe-version: 4.2.5
+          haxe-version: 4.1.5
 
       - name: Setup HaxeFlixel
         run: |
@@ -46,7 +46,6 @@ jobs:
           haxelib --never install flixel 4.11.0
           haxelib run lime setup flixel
           haxelib run lime setup
-          haxelib install flixel-tools
           haxelib install flixel-ui
           haxelib install flixel-addons
           haxelib install newgrounds
