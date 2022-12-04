@@ -40,7 +40,7 @@ class MusicBeatState extends FlxUIState
 		virtualPad = new FlxVirtualPad(DPad, Action);
 		add(virtualPad);
 
-		controls.setVirtualPadUI(virtualPad, DPad, Action);
+		controls.setVirtualPad(virtualPad, DPad, Action);
 		trackedInputsVirtualPad = controls.trackedInputs;
 		controls.trackedInputs = [];
 	}
