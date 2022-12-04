@@ -24,6 +24,7 @@ import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.ui.FlxSpriteButton;
 import flixel.util.FlxColor;
+import flixel.input.mouse.FlxMouse;
 import haxe.Json;
 import lime.utils.Assets;
 import openfl.events.Event;
