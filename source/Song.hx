@@ -7,7 +7,7 @@ import lime.utils.Assets;
 
 using StringTools;
 
-typedef SwagSong
+typedef SwagSong =
 {
 	var song:String;
 	var notes:Array<SwagSection>;
