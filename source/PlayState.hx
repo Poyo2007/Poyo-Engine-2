@@ -1872,9 +1872,12 @@ class PlayState extends MusicBeatState
 			//Checks what notes are alive and runs a function to sort em
 			notes.forEachAlive(function(daNote:Note)
 			{
-				if (!daNote.isSustainNote && daNote.canBeHit && daNote.mustPress && !daNote.tooLate && !daNote.wasGoodHit)
-				{
-					noteCheck(controlArray[daNote.noteData], daNote)
+				if (!daNote.isSustainNote && 
+				daNote.canBeHit && 
+				daNote.mustPress && 
+				!daNote.tooLate && 
+				!daNote.wasGoodHit) {
+					noteCheck(controlArray[daNote.noteData], daNote);
 				}
 			});
 		}
